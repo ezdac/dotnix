@@ -8,6 +8,7 @@ channels: final: prev: {
     discord
     element-desktop
     rage
+    neovim
     nix-index
     nixpkgs-fmt
     qutebrowser

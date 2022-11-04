@@ -28,7 +28,6 @@ in
       moreutils
       nix-index
       nmap
-      neovim
       ripgrep
       skim
       tealdeer

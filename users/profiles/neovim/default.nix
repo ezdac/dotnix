@@ -4,12 +4,14 @@
   #   enable = true;
   # };
 
-  # home = {
-  #   # ...
-  #   packages = with pkgs; [
-  #     neovim
-  #   ];
-  # };
+  home = {
+    # ...
+    packages = with pkgs; [
+      # this is included in the overlays/overrides.nix
+      # and thus will be pulled from the "latest" channel (nixpks-unstable)
+      neovim 
+    ];
+  };
 
   xdg = {
     enable = true;
