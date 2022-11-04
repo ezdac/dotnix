@@ -1,0 +1,16 @@
+return {
+  "jsonls",
+  "bashls",
+  "clojure_lsp",
+  "dockerls",
+  "cmake",
+  "pyright",
+  "sqls",
+  "yamlls",
+  "sumneko_lua",
+  "gopls",
+  "solc",
+  "golangci_lint_ls",
+  "tsserver",
+  "vimls",
+}
