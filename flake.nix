@@ -126,7 +126,7 @@
               users = digga.lib.rakeLeaves ./users;
             };
             suites = with profiles; rec {
-              base = [ core.nixos users.nixos users.root ];
+              base = [ core.nixos users.nixos users.root users.ezdac];
             };
           };
         };
@@ -166,7 +166,7 @@
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
               base = [ direnv git ];
-              dev = [ nvim ];
+              dev = base ++ [ neovim ];
             };
           };
           users = {
@@ -187,7 +187,7 @@
             # first steps in customizing the template.
             nixos = { suites, ... }: { imports = suites.base; };
             ezdac = { suites, ... }: { 
-              imports = [suites.base suites.dev]; 
+              imports = suites.dev; 
             };
             darwin = { suites, ... }: { imports = suites.base; };
           }; # digga.lib.importers.rakeLeaves ./users/hm;
