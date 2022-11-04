@@ -10,6 +10,7 @@
       # this is included in the overlays/overrides.nix
       # and thus will be pulled from the "latest" channel (nixpks-unstable)
       neovim 
+      gcc
     ];
   };
 
