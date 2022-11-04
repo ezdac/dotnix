@@ -69,6 +69,12 @@
     openFirewall = lib.mkDefault false;
   };
 
+  # Configure keymap in X11
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "";
+  };
+
   # Service that makes Out of Memory Killer more effective
   services.earlyoom.enable = true;
 
