@@ -45,6 +45,9 @@
       nixos-hardware.url = "github:nixos/nixos-hardware";
 
       nixos-generators.url = "github:nix-community/nixos-generators";
+
+      astronvim.url = "github:AstroNvim/AstroNvim";
+      astronvim.flake = false;
     };
 
   outputs =
@@ -165,8 +168,7 @@
           importables = rec {
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
-              base = [ direnv git ];
-              dev = base ++ [ neovim ];
+              base = [ direnv git neovim];
             };
           };
           users = {
@@ -186,9 +188,7 @@
             # appropriate. after all, configuring these hm users is one of the
             # first steps in customizing the template.
             nixos = { suites, ... }: { imports = suites.base; };
-            ezdac = { suites, ... }: { 
-              imports = suites.dev; 
-            };
+            ezdac = { suites, ... }: { imports = suites.base; };
             darwin = { suites, ... }: { imports = suites.base; };
           }; # digga.lib.importers.rakeLeaves ./users/hm;
         };
