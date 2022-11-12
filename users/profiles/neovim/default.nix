@@ -1,4 +1,4 @@
-{ inputs,pkgs,home,config, ... }:
+{ inputs, pkgs, home, config, ... }:
 {
   # programs.neovim = {
   #   enable = true;
@@ -7,13 +7,13 @@
   home = {
     # ...
     packages = with pkgs; [
-      # this is included in the overlays/overrides.nix
-      # and thus will be pulled from the "latest" channel (nixpks-unstable)
-      neovim 
+      neovim # in overlays/overrides.nix, thus pulled from "latest" (nixpks-unstable)
       gcc
     ];
   };
 
+  # for now, we have to use dotfile configuration
+  # instead of configuring it via home-manager
   xdg = {
     enable = true;
     configFile."astronvim/lua/user" = {

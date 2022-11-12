@@ -129,7 +129,7 @@
               users = digga.lib.rakeLeaves ./users;
             };
             suites = with profiles; rec {
-              base = [ core.nixos users.nixos users.root users.ezdac];
+              base = [ core.nixos users.nixos users.root users.ezdac ];
             };
           };
         };
@@ -168,7 +168,9 @@
           importables = rec {
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
-              base = [ direnv git neovim];
+              base = [ direnv git neovim ];
+              terminal = [ kitty ];
+              wayland = [ sway ];
             };
           };
           users = {
@@ -187,8 +189,8 @@
             # it could just be left to the developer to determine what's
             # appropriate. after all, configuring these hm users is one of the
             # first steps in customizing the template.
-            nixos = { suites, ... }: { imports = suites.base; };
-            ezdac = { suites, ... }: { imports = suites.base; };
+            nixos = { suites, ... }: { imports = suites.base ++ suites.terminal ++ suites.wayland; };
+            ezdac = { suites, ... }: { imports = suites.base ++ suites.terminal ++ suites.wayland; };
             darwin = { suites, ... }: { imports = suites.base; };
           }; # digga.lib.importers.rakeLeaves ./users/hm;
         };

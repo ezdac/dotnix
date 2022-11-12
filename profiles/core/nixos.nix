@@ -78,4 +78,7 @@
   # Service that makes Out of Memory Killer more effective
   services.earlyoom.enable = true;
 
+  # wayland / sway
+  security.polkit.enable = true;
+
 }
