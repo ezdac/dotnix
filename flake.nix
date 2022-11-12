@@ -170,7 +170,8 @@
             suites = with profiles; rec {
               base = [ direnv git neovim ];
               terminal = [ kitty ];
-              wayland = [ sway ];
+              web = [ firefox ];
+              wm = [ i3 ];
             };
           };
           users = {
@@ -189,8 +190,8 @@
             # it could just be left to the developer to determine what's
             # appropriate. after all, configuring these hm users is one of the
             # first steps in customizing the template.
-            nixos = { suites, ... }: { imports = suites.base ++ suites.terminal ++ suites.wayland; };
-            ezdac = { suites, ... }: { imports = suites.base ++ suites.terminal ++ suites.wayland; };
+            nixos = { suites, ... }: { imports = suites.base ++ suites.terminal ++ suites.wm ++ suites.web; };
+            ezdac = { suites, ... }: { imports = suites.base; };
             darwin = { suites, ... }: { imports = suites.base; };
           }; # digga.lib.importers.rakeLeaves ./users/hm;
         };

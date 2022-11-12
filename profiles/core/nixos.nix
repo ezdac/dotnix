@@ -71,12 +71,18 @@
 
   # Configure keymap in X11
   services.xserver = {
+    enable = true;
     layout = "us";
     xkbVariant = "";
+    # Swap Caps Lock with Ctrl
+    xkbOptions = "ctrl:swapcaps";
   };
+  # Also use the keyboard in tty virtual consoles
+  console.useXkbConfig = true;
 
   # Service that makes Out of Memory Killer more effective
   services.earlyoom.enable = true;
+
 
   # wayland / sway
   security.polkit.enable = true;
