@@ -76,6 +76,12 @@
     xkbVariant = "";
     # Swap Caps Lock with Ctrl
     xkbOptions = "ctrl:swapcaps";
+    desktopManager = {
+      xterm.enable = true;
+    };
+    # displayManager = {
+    #   lightdm.enable = true;
+    # };
   };
   # Also use the keyboard in tty virtual consoles
   console.useXkbConfig = true;
