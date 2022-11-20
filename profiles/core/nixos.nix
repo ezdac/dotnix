@@ -17,6 +17,9 @@
       iputils
       usbutils
       utillinux
+
+      # interception-tools
+      # interception-tools-plugins
     ];
 
     shellAliases =
@@ -75,7 +78,8 @@
     layout = "us";
     xkbVariant = "";
     # Swap Caps Lock with Ctrl
-    xkbOptions = "ctrl:swapcaps";
+    # now handled by intercept-tools
+    # xkbOptions = "ctrl:swapcaps";
     desktopManager = {
       xterm.enable = true;
     };

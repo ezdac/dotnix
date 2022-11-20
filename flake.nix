@@ -168,7 +168,7 @@
           importables = rec {
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
-              base = [ direnv git neovim ];
+              base = [ direnv git neovim keymap ];
               terminal = [ kitty ];
               web = [ firefox ];
               wm = [ i3 ];

@@ -11,9 +11,9 @@ in
       modifier = "Mod4";
 
       fonts = {
-        names = [ "DejaVu Sans Mono, FontAwesome6" ];
+        names = [ "DejaVu Sans Mono, FontAwesome5Free" ];
         style = "Bold Semi-Condensed";
-        size = 14.0;
+        size = 16.0;
       };
 
       keybindings = lib.mkOptionDefault {
