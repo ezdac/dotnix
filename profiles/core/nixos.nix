@@ -3,6 +3,7 @@
 {
   imports = [
     ./common.nix
+    ./keymap.nix
   ];
 
   # This is just a representation of the nix default
@@ -18,8 +19,6 @@
       usbutils
       utillinux
 
-      # interception-tools
-      # interception-tools-plugins
     ];
 
     shellAliases =
@@ -96,5 +95,6 @@
 
   # wayland / sway
   security.polkit.enable = true;
+
 
 }
