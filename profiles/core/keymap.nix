@@ -19,7 +19,7 @@
 
       in
       ''
-        - JOB: ${intercept}/bin/intercept -g $DEVNODE | ${plugins.dual-function-keys}/bin/dual-function-keys -c ${dfkConfig} | ${plugins.caps2esc}/bin/caps2esc | ${intercept}/bin/uinput -d $DEVNODE
+        - JOB: ${intercept}/bin/intercept -g $DEVNODE | ${plugins.dual-function-keys}/bin/dual-function-keys -c ${dfkConfig} | ${intercept}/bin/uinput -d $DEVNODE
           DEVICE:
             EVENTS:
               EV_KEY: [[KEY_CAPSLOCK, KEY_ESC, KEY_LEFTCTRL]]
