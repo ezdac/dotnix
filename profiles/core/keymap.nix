@@ -1,6 +1,6 @@
-{ config, lib, pkgs, self, ... }:
+{ lib, pkgs, self, ... }:
 {
-  config.services.interception-tools = {
+  services.interception-tools = {
     enable = true;
     udevmonConfig =
       let
@@ -11,7 +11,6 @@
             TAP_MILLISEC: 200
             DOUBLE_TAP_MILLISEC: 0
 
-
           MAPPINGS:
             - KEY: KEY_CAPSLOCK
               TAP: KEY_ESC
@@ -20,15 +19,16 @@
 
       in
       ''
-        - JOB: |
-            ${intercept}/bin/intercept -g $DEVNODE \
-              | ${plugins.dual-function-keys}/bin/dual-function-keys -c ${dfkConfig} \
-              | ${plugins.caps2esc}/bin/caps2esc \
-              | ${intercept}/bin/uinput -d $DEVNODE
+        - JOB: ${intercept}/bin/intercept -g $DEVNODE | ${plugins.dual-function-keys}/bin/dual-function-keys -c ${dfkConfig} | ${plugins.caps2esc}/bin/caps2esc | ${intercept}/bin/uinput -d $DEVNODE
           DEVICE:
             EVENTS:
               EV_KEY: [[KEY_CAPSLOCK, KEY_ESC, KEY_LEFTCTRL]]
       '';
     # plugins = [ plugins.caps2esc plugins.dual-function-keys ];
   };
+  home-manager.sharedModules = [
+    {
+      home.keyboard = null;
+    }
+  ];
 }
